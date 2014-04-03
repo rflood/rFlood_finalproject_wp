@@ -20,11 +20,12 @@
 <link rel="shortcut icon" href="img/favicon.ico">
 
 <!-- GoogleFonts -->
+<link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
 <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
 
-    <!-- Responsive -->
-    <script src="js/modernizr.js" type="text/javascript"></script>
-    <script src="js/respond.min.js" type="text/javascript"></script>
+<!-- Responsive -->
+<script src="js/modernizr.js" type="text/javascript"></script>
+<script src="js/respond.min.js" type="text/javascript"></script>
 
 <?php wp_head(); ?>
 </head>

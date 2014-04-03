@@ -5,67 +5,49 @@
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+	<header class="entry-header">
+		<h1 class="entry-title"><?php the_title(); ?></h1>
 
+		<div class="entry-meta">
+			<?php floodwebportfolio_posted_on(); ?>
+		</div><!-- .entry-meta -->
+	</header><!-- .entry-header -->
 
-    <div class="entry-content">
-
-        <?php the_content(); ?>
-
-        <?php
-
-        $top_image = get_field('top_image');
-        $about_subtitle = get_field('about_subtitle');
-        $date_created = get_field('date_created');
-        $description = get_field('description');
-        $project_gallery = get_field('project_gallery');
-
-        ?>
-        <div class="wrapper">
-
-        <img class="top_image" src= <?php echo $top_image; ?>>
-
-            <div class="project-content">
-                <h1 class="entry-title"><?php the_title(); ?></h1>
-                <p class="about_subtitle"><?php echo $about_subtitle; ?></p>
-                <p class="date_created"><?php echo $date_created; ?></p>
-                <p class="description"><?php echo $description; ?></p>
-                <button type="button">View Project</button>
-            </div>
-
-            <div class="project-gallery">
-                <?php
-                $images = get_field('project_gallery');
-
-                if( $images ): ?>
-                    <div id="slider" class="flexslider">
-                        <ul class="slides">
-                            <?php foreach( $images as $image ): ?>
-                                <li data-thumb="<?php echo $image['sizes']['thumbnail']; ?>">
-                                    <img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>" />
-                                    <p class="flex-caption"><?php echo $image['caption']; ?></p>
-                                </li>
-
-                            <?php endforeach; ?>
-                        </ul>
-
-                    </div>
-
-                <?php endif; ?>
-
-            </div>
-
-
-            <?php
-            wp_link_pages( array(
-                'before' => '<div class="page-links">' . __( 'Pages:', 'floodwebportfolio' ),
-                'after'  => '</div>',
-            ) );
-            ?>
-        </div>
-    </div><!-- .entry-content -->
+	<div class="entry-content">
+		<?php the_content(); ?>
+		<?php
+			wp_link_pages( array(
+				'before' => '<div class="page-links">' . __( 'Pages:', 'floodwebportfolio' ),
+				'after'  => '</div>',
+			) );
+		?>
+	</div><!-- .entry-content -->
 
 	<footer class="entry-footer">
 		<?php
+			/* translators: used between list items, there is a space after the comma */
+			$category_list = get_the_category_list( __( ', ', 'floodwebportfolio' ) );
+
+			/* translators: used between list items, there is a space after the comma */
+			$tag_list = get_the_tag_list( '', __( ', ', 'floodwebportfolio' ) );
+
+			if ( ! floodwebportfolio_categorized_blog() ) {
+				// This blog only has 1 category so we just need to worry about tags in the meta text
+				if ( '' != $tag_list ) {
+					$meta_text = __( 'This entry was tagged %2$s. Bookmark the <a href="%3$s" rel="bookmark">permalink</a>.', 'floodwebportfolio' );
+				} else {
+					$meta_text = __( 'Bookmark the <a href="%3$s" rel="bookmark">permalink</a>.', 'floodwebportfolio' );
+				}
+
+			} else {
+				// But this blog has loads of categories so we should probably display them here
+				if ( '' != $tag_list ) {
+					$meta_text = __( 'This entry was posted in %1$s and tagged %2$s. Bookmark the <a href="%3$s" rel="bookmark">permalink</a>.', 'floodwebportfolio' );
+				} else {
+					$meta_text = __( 'This entry was posted in %1$s. Bookmark the <a href="%3$s" rel="bookmark">permalink</a>.', 'floodwebportfolio' );
+				}
+
+			} // end check for categories on this blog
 
 			printf(
 				$meta_text,
@@ -75,5 +57,6 @@
 			);
 		?>
 
+		<?php edit_post_link( __( 'Edit', 'floodwebportfolio' ), '<span class="edit-link">', '</span>' ); ?>
 	</footer><!-- .entry-footer -->
 </article><!-- #post-## -->
