@@ -37,7 +37,7 @@
 		<div class="site-branding">
 
             <div class="header-image">
-                <img src="img/header-image.png">
+                <img src="<?php echo get_stylesheet_directory_uri() ?>/img/header-logo.png">
             </div>
 
 			<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>

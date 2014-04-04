@@ -94,7 +94,8 @@ function floodwebportfolio_scripts() {
 
     wp_enqueue_script( 'respond', get_template_directory_uri() . '/js/respond.min.js', array(), '1.0.0', true );
 
-    wp_enqueue_script( 'flexslider', get_template_directory_uri() . '/js/jquery.flexslider.js', array(), '1.0.0', true );
+    wp_enqueue_script( 'jquery');
+    wp_enqueue_script( 'flexslider', get_template_directory_uri() . '/js/jquery.flexslider.js', array('jquery'), '1.0.0', true );
 
     wp_enqueue_script( 'main', get_template_directory_uri() . '/js/main.js', array(), '1.0.0', true );
 
