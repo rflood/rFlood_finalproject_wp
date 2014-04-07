@@ -10,14 +10,21 @@
 
 	</div><!-- #content -->
 
-	<footer id="colophon" class="site-footer" role="contentinfo">
 
+    <footer id="colophon" class="site-footer" role="contentinfo">
+        <a name="mobile-menu">
+            <nav id="site-navigation" class="mobile-navigation" role="navigation">
+                <?php wp_nav_menu( array( 'theme_location' => 'footer-menu' )); ?>
+            </nav><!-- #mobile-navigation -->
 
-		</div><!-- .site-info -->
-	</footer><!-- #colophon -->
-</div><!-- #page -->
+            <div class="footer-background">
+                <img src="<?php echo get_stylesheet_directory_uri() ?>/img/footer.png">
+            </div>
 
-<?php wp_footer(); ?>
+    </footer><!-- #colophon -->
+    </div><!-- #page -->
 
-</body>
-</html>
+    <?php wp_footer(); ?>
+
+    </body>
+    </html>

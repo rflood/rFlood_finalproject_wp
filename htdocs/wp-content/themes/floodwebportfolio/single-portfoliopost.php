@@ -34,33 +34,38 @@ Template Name Posts: Portfolio Post
 <div id="page" class="hfeed site">
 
     <header id="post-masthead" class="site-header" role="banner">
+
         <div class="site-branding">
 
             <div class="header-image">
                 <img src="<?php echo get_stylesheet_directory_uri() ?>/img/header-logo.png">
             </div>
 
-            <h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
+            <div class="header-background">
+                <img src="<?php echo get_stylesheet_directory_uri() ?>/img/post-header.png">
+            </div>
+
+            <h1 class="site-title">
+                <a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a>
+            </h1>
+
+            <a class="mobile-menu" href="#mobile-menu">&#9776;</a>
+
         </div>
 
         <nav id="site-navigation" class="main-navigation" role="navigation">
-            <h1 class="menu-toggle"><?php _e( 'Menu', 'floodwebportfolio' ); ?></h1>
+
             <a class="skip-link screen-reader-text" href="#content"><?php _e( 'Skip to content', 'floodwebportfolio' ); ?></a>
 
             <?php wp_nav_menu( array( 'theme_location' => 'primary' ) ); ?>
         </nav><!-- #site-navigation -->
+
     </header><!-- #masthead -->
 
     <div id="content" class="site-content">
 
     <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-            <header class="entry-header">
-                <h1 class="entry-title"><?php the_title(); ?></h1>
 
-                <!-- <div class="entry-meta"> -->
-                <!--	<?php floodwebportfolio_posted_on(); ?> -->
-                <!-- </div><!-- .entry-meta -->
-            </header><!-- .entry-header -->
 
         <div class="entry-content">
 
@@ -73,19 +78,23 @@ Template Name Posts: Portfolio Post
             $date_created = get_field('date_created');
             $description = get_field('description');
             $project_gallery = get_field('project_gallery');
+            $button = get_field('button');
 
             ?>
             <div class="wrapper">
 
-                <img class="top_image" src= <?php echo $top_image; ?>>
+                <img class="top-image" src= <?php echo $top_image; ?>>
 
                 <div class="project-content">
                     <h1 class="entry-title"><?php the_title(); ?></h1>
-                    <p class="about_subtitle"><?php echo $about_subtitle; ?></p>
-                    <p class="date_created"><?php echo $date_created; ?></p>
+                    <p class="about-subtitle"><?php echo $about_subtitle; ?></p>
+                    <p class="date-created"><?php echo $date_created; ?></p>
                     <p class="description"><?php echo $description; ?></p>
-                    <button type="button">View Project</button>
+                    <button type="button"><?php echo $button; ?></button>
                 </div>
+
+                <!-- for display at 768px -->
+                <p class="responsive-description"><?php echo $description; ?></p>
 
                 <div class="project-gallery">
                     <?php
@@ -120,13 +129,19 @@ Template Name Posts: Portfolio Post
         </div><!-- .entry-content -->
 
         <footer id="colophon" class="site-footer" role="contentinfo">
+            <a name="mobile-menu">
+                <nav id="site-navigation" class="mobile-navigation" role="navigation">
+                    <?php wp_nav_menu( array( 'theme_location' => 'footer-menu' )); ?>
+                </nav><!-- #mobile-navigation -->
 
+                <div class="footer-background">
+                    <img src="<?php echo get_stylesheet_directory_uri() ?>/img/footer.png">
+                </div>
 
-    </div><!-- .site-info -->
-    </footer><!-- #colophon -->
-</div><!-- #page -->
+        </footer><!-- #colophon -->
+    </div><!-- #page -->
 
-<?php wp_footer(); ?>
+    <?php wp_footer(); ?>
 
 </body>
 </html>

@@ -41,9 +41,15 @@ function floodwebportfolio_setup() {
 	//add_theme_support( 'post-thumbnails' );
 
 	// This theme uses wp_nav_menu() in one location.
-	register_nav_menus( array(
-		'primary' => __( 'Primary Menu', 'floodwebportfolio' ),
-	) );
+
+    function register_my_menus() {
+        register_nav_menus( array(
+                'primary' => __( 'Primary Menu', 'floodwebportfolio' ),
+                'mobile-menu' => __( 'Mobile Menu' )
+            )
+        );
+    }
+    add_action( 'init', 'register_my_menus' );
 
 	// Enable support for Post Formats.
 	add_theme_support( 'post-formats', array( 'aside', 'image', 'video', 'quote', 'link' ) );
