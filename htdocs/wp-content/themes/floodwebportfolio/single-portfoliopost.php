@@ -16,8 +16,12 @@ Template Name Posts: Portfolio Post
     <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
     <meta name="description" content="Portfolio">
     <meta name="author" content="Rich Flood">
-    <link rel="shortcut icon" href="img/favicon.ico">
+    <link rel="shortcut icon" href="/img/favicon.ico">
 
+    <!-- Adaptive Images -->
+    <script>
+        document.cookie='resolution='+Math.max(screen.width,screen.height)+("devicePixelRatio" in window ? ","+devicePixelRatio : ",1")+'; path=/';
+    </script>
 
     <!-- GoogleFonts -->
     <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>

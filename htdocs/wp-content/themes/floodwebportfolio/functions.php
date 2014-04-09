@@ -54,7 +54,12 @@ function floodwebportfolio_setup() {
 	// Enable support for Post Formats.
 	add_theme_support( 'post-formats', array( 'aside', 'image', 'video', 'quote', 'link' ) );
 
-	// Setup the WordPress core custom background feature.
+    // Enable support for Post Thumbnails.
+    add_theme_support('post-thumbnails');
+    set_post_thumbnail_size(588, 250, true);
+
+
+    // Setup the WordPress core custom background feature.
 	add_theme_support( 'custom-background', apply_filters( 'floodwebportfolio_custom_background_args', array(
 		'default-color' => 'ffffff',
 		'default-image' => '',
