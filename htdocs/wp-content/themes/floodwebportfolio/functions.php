@@ -56,7 +56,8 @@ function floodwebportfolio_setup() {
 
     // Enable support for Post Thumbnails.
     add_theme_support('post-thumbnails');
-    set_post_thumbnail_size(588, 250, true);
+
+
 
 
     // Setup the WordPress core custom background feature.
@@ -142,6 +143,7 @@ require get_template_directory() . '/inc/customizer.php';
  */
 require get_template_directory() . '/inc/jetpack.php';
 
+
 /**
  * Load GoogleFonts
  */
@@ -151,6 +153,9 @@ function load_fonts() {
     wp_register_style('googleFontsLato','http://fonts.googleapis.com/css?family=Lato:300,400,700');
     wp_enqueue_style( 'googleFontsLato');
 
+    wp_register_style('googleFontsMontserrat','http://fonts.googleapis.com/css?family=Montserrat:400,700');
+    wp_enqueue_style( 'googleFontsMontserrat');
+
 }
 
 add_action('wp_print_styles', 'load_fonts');
@@ -158,7 +163,7 @@ add_action('wp_print_styles', 'load_fonts');
 
 
 /**
- * Create Cabin Post Types
+ * Create Portfolio Post Types
  */
 
 add_action( 'init', 'create_my_post_types' );
@@ -196,3 +201,4 @@ function create_my_post_types() {
         )
     );
 }
+

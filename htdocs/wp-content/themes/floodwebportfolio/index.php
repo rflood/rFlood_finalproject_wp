@@ -16,21 +16,33 @@ get_header(); ?>
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main" role="main">
 
-		<?php if ( have_posts() ) : ?>
+    <?php
+    $args = array( 'post_type' => 'portfoliopost' );
+    $portfolioposts = new WP_Query( $args );
+    $size = array(500,280);
 
-			<?php /* Start the Loop */ ?>
-			<?php while ( have_posts() ) : the_post(); ?>
+    ?>
 
-                <?php
-                if ( has_post_thumbnail() )
-                    the_post_thumbnail( 'thumbnail' );
-                else
-                    echo '<img src="/img/default-image.jpg" alt="Example Image" title="Example" />';
-                ?>
 
-			<?php endwhile; ?>
+    <?php if ( $portfolioposts -> have_posts() ) : ?>
 
-			<?php floodwebportfolio_paging_nav(); ?>
+        <?php /* Start the Loop */ ?>
+
+        <?php while ( $portfolioposts -> have_posts() ) : $portfolioposts -> the_post(); ?>
+
+            <?php if ( has_post_thumbnail()) : ?>
+                <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>" >
+                    <?php the_post_thumbnail($size); ?>
+                </a>
+            <?php endif; ?>
+
+
+
+        <?php endwhile; ?>
+
+
+
+        <?php floodwebportfolio_paging_nav(); ?>
 
 		<?php else : ?>
 
@@ -38,8 +50,10 @@ get_header(); ?>
 
 		<?php endif; ?>
 
+
+
 		</main><!-- #main -->
 	</div><!-- #primary -->
 
-<?php get_sidebar(); ?>
 <?php get_footer(); ?>
+
