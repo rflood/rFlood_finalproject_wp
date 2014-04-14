@@ -512,44 +512,119 @@ a:active {
 }
 
 /*--------------------------------------------------------------
-10.0 Content
+9.0 Posts and pages
 --------------------------------------------------------------*/
 
-#main > a:nth-child(odd) > img{
-    float: left;
-    width: 40%;
-    margin: 7em 2.5em 0em 2.5em;
-    z-index: 4;
+.sticky {
 }
-#main > a:nth-child(even) > img{
-    float: right;
-    width: 40%;
-    margin: 7em 3.5em 0em 2.5em;
-    z-index: 4;
+.hentry {
+    margin: 0 0 -.5em;
 }
-
-#main > a > img{
-
-    opacity: .6;
-    transition: all .3s ease-in-out;
-    -webkit-transition: all .3s ease-in-out;
-    -moz-transition: all .3s ease-in-out;
-    -o-transition: all .3s ease-in-out;
-    -ms-transition: all .3s ease-in-out;
-    width: 100%;
-    height: 100%;
-    z-index: 1;
+.byline,
+.updated {
+    display: none;
+}
+.single .byline,
+.group-blog .byline {
+    display: inline;
+}
+.page-content,
+.entry-content,
+.entry-summary {
+    margin: 1.5em 0 0;
+}
+.page-links {
+    clear: both;
+    margin: 0 0 1.5em;
 }
 
-#main > a > img:hover,
-#main > a > img:focus {
-    opacity: 1;
-    -webkit-transition: all .4s ease-in-out;
-    -moz-transition: all .4s ease-in-out;
-    -o-transition: all .4s ease-in-out;
-    -ms-transition: all .4s ease-in-out;
-    transition: all .4s ease-in-out;
+/*--------------------------------------------------------------
+9.1 Asides
+--------------------------------------------------------------*/
+.blog .format-aside .entry-title,
+.archive .format-aside .entry-title {
+    display: none;
 }
+
+/*--------------------------------------------------------------
+9.2 Comments
+--------------------------------------------------------------*/
+.comment-content a {
+    word-wrap: break-word;
+}
+.bypostauthor {
+}
+
+
+/*--------------------------------------------------------------
+9.3 Infinite scroll
+--------------------------------------------------------------*/
+/* Globally hidden elements when Infinite Scroll is supported and in use. */
+.infinite-scroll .paging-navigation, /* Older / Newer Posts Navigation (always hidden) */
+.infinite-scroll.neverending .site-footer { /* Theme Footer (when set to scrolling) */
+    display: none;
+}
+/* When Infinite Scroll has reached its end we need to re-display elements that were hidden (via .neverending) before */
+.infinity-end.neverending .site-footer {
+    display: block;
+}
+
+/*--------------------------------------------------------------
+9.4 Media
+--------------------------------------------------------------*/
+.page-content img.wp-smiley,
+.entry-content img.wp-smiley,
+.comment-content img.wp-smiley {
+    border: none;
+    margin-bottom: 0;
+    margin-top: 0;
+    padding: 0;
+}
+.wp-caption {
+    border: 1px solid #ccc;
+    margin-bottom: 1.5em;
+    max-width: 100%;
+}
+.wp-caption img[class*="wp-image-"] {
+    display: block;
+    margin: 1.2% auto 0;
+    max-width: 98%;
+}
+.wp-caption-text {
+    text-align: center;
+}
+.wp-caption .wp-caption-text {
+    margin: 0.8075em 0;
+}
+.site-main .gallery {
+    margin-bottom: 1.5em;
+}
+.gallery-caption {
+}
+.site-main .gallery a img {
+    border: none;
+    height: auto;
+    max-width: 90%;
+}
+.site-main .gallery dd,
+.site-main .gallery figcaption {
+    margin: 0;
+}
+.site-main .gallery-columns-4 .gallery-item {
+}
+.site-main .gallery-columns-4 .gallery-item img {
+}
+/* Make sure embeds and iframes fit their containers */
+embed,
+iframe,
+object {
+    max-width: 100%;
+}
+
+
+/*--------------------------------------------------------------
+10.0 Content Styling
+--------------------------------------------------------------*/
 
 /*--------------------------------------------------------------
 10.1 Masthead
@@ -561,6 +636,10 @@ a:active {
     position: absolute;
     top: 0;
     z-index: 0;
+}
+
+.header-background > img {
+    width: 100%;
 }
 
 .header-image{
@@ -593,7 +672,47 @@ a:active {
 
 
 /*--------------------------------------------------------------
-10.2 Post Content
+10.2 Main Content
+--------------------------------------------------------------*/
+
+#main > a:nth-child(odd) > img{
+    float: left;
+    width: 40%;
+    margin: 7em 2.5em 0em 2.5em;
+    z-index: 4;
+}
+#main > a:nth-child(even) > img{
+    float: right;
+    width: 40%;
+    margin: 7em 3.5em 0em 2.5em;
+    z-index: 4;
+}
+
+#main > a > img{
+    background-color: #fff;
+    opacity: .6;
+    transition: all .3s ease-in-out;
+    -webkit-transition: all .3s ease-in-out;
+    -moz-transition: all .3s ease-in-out;
+    -o-transition: all .3s ease-in-out;
+    -ms-transition: all .3s ease-in-out;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+#main > a > img:hover,
+#main > a > img:focus {
+    opacity: 1;
+    -webkit-transition: all .4s ease-in-out;
+    -moz-transition: all .4s ease-in-out;
+    -o-transition: all .4s ease-in-out;
+    -ms-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+}
+
+/*--------------------------------------------------------------
+10.3 Post Content
 --------------------------------------------------------------*/
 body{
     background: url(img/portfoliopost-background.jpg);
@@ -670,8 +789,12 @@ body{
     z-index: 0;
 }
 
+#colophon > div > img{
+    width: 100%;
+}
+
 /*--------------------------------------------------------------
-10.2b Gallery Content
+10.3b Gallery Content
 --------------------------------------------------------------*/
 
 .project-gallery{
@@ -822,118 +945,169 @@ html[xmlns] .slides {display: block;}
 
 
 /*--------------------------------------------------------------
-10.2 Posts and pages
+10.4 About Me Page
 --------------------------------------------------------------*/
-.sticky {
+#post-2 > div > div.wrapper {
+    margin: 2.5em;
 }
-.hentry {
-	margin: 0 0 -.5em;
+
+#post-2 > div > div > img {
+    width: 25%;
 }
-.byline,
-.updated {
-	display: none;
+
+#post-2 > header {
+    display: none;
 }
-.single .byline,
-.group-blog .byline {
-	display: inline;
+
+#post-2 > div > div > div.about-content {
+    float: right;
+    margin-left: 30%;
+    margin-top: -43%;
 }
-.page-content,
-.entry-content,
-.entry-summary {
-	margin: 1.5em 0 0;
+
+#post-2 > div > div > div > h1.content-title {
+    font-size: 3em;
+    font-weight: bold;
+    margin-bottom: .5em;
 }
-.page-links {
-	clear: both;
-	margin: 0 0 1.5em;
+
+#post-2 > div > div > div > button{
+    background-color: #000;
+    width: 11em;
+    height: 3em;
+    margin-top: 2em;
+    text-shadow: none;
+    font-family: 'Montserrat', 'Arial', sans-serif;
+}
+
+#post-2 > div > div > div > button > a{
+    text-decoration: none;
+    font-size: 1.4em;
+    color: #fff;
+}
+
+#post-2 > div > div > div > button > a:hover{
+    color: #ef4b3b;
+}
+
+#post-2 > footer > span {
+    display: none;
+}
+
+@media screen and (max-width: 960px) {
+
+    #post-2 > div > div > img {
+        width: 50%;
+        margin-left: 25%;
+        margin-bottom: 2em;
+    }
+
+    #post-2 > div > div > div.about-content {
+        margin-left: 0;
+        margin-top: 5%;
+    }
+}
+
+@media all and (max-width: 480px) {
+    /* styles for iPhone/Android landscape (and really narrow browser windows) */
+
+    #post-2 > div > div > img {
+        width: 90%;
+        margin-left: 2%;
+        margin-bottom: 2em;
+    }
+
+    #post-2 > div > div > div > button {
+        width: 100%;
+        height: 6em;
+        margin: 2em 0;
+    }
+
+    #post-2 > div > div > div > button > a{
+        font-size: 2em;
+    }
+
+    #post-32 > footer > span > a{
+        display: none;
+    }
+
+    #post-32 > footer > span > a {
+        display: none;
+    }
 }
 
 /*--------------------------------------------------------------
-10.3 Asides
---------------------------------------------------------------*/
-.blog .format-aside .entry-title,
-.archive .format-aside .entry-title {
-	display: none;
-}
-
-/*--------------------------------------------------------------
-10.4 Comments
---------------------------------------------------------------*/
-.comment-content a {
-	word-wrap: break-word;
-}
-.bypostauthor {
-}
-
-/*--------------------------------------------------------------
-10.1 Footer
+10.5 Contact Me Page
 --------------------------------------------------------------*/
 
-
-/*--------------------------------------------------------------
-11.0 Infinite scroll
---------------------------------------------------------------*/
-/* Globally hidden elements when Infinite Scroll is supported and in use. */
-.infinite-scroll .paging-navigation, /* Older / Newer Posts Navigation (always hidden) */
-.infinite-scroll.neverending .site-footer { /* Theme Footer (when set to scrolling) */
-	display: none;
-}
-/* When Infinite Scroll has reached its end we need to re-display elements that were hidden (via .neverending) before */
-.infinity-end.neverending .site-footer {
-	display: block;
+#contact {
+    width: 100%;
+    margin-left: 25%;
 }
 
-/*--------------------------------------------------------------
-12.0 Media
---------------------------------------------------------------*/
-.page-content img.wp-smiley,
-.entry-content img.wp-smiley,
-.comment-content img.wp-smiley {
-	border: none;
-	margin-bottom: 0;
-	margin-top: 0;
-	padding: 0;
-}
-.wp-caption {
-	border: 1px solid #ccc;
-	margin-bottom: 1.5em;
-	max-width: 100%;
-}
-.wp-caption img[class*="wp-image-"] {
-	display: block;
-	margin: 1.2% auto 0;
-	max-width: 98%;
-}
-.wp-caption-text {
-	text-align: center;
-}
-.wp-caption .wp-caption-text {
-	margin: 0.8075em 0;
-}
-.site-main .gallery {
-	margin-bottom: 1.5em;
-}
-.gallery-caption {
-}
-.site-main .gallery a img {
-	border: none;
-	height: auto;
-	max-width: 90%;
-}
-.site-main .gallery dd,
-.site-main .gallery figcaption {
-	margin: 0;
-}
-.site-main .gallery-columns-4 .gallery-item {
-}
-.site-main .gallery-columns-4 .gallery-item img {
-}
-/* Make sure embeds and iframes fit their containers */
-embed,
-iframe,
-object {
-	max-width: 100%;
+#post-32 > header {
+    display: none;
 }
 
+#field > h1 {
+    font-size: 3em;
+    font-weight: bold;
+}
+
+#message_1 {
+    height: 9.5em;
+}
+
+#captchaimg_1 {
+    max-width: 50%;
+    height: 5em;
+}
+
+#hdcaptcha_1 {
+    width: 50%;
+}
+
+#fieldlist_1 > div > div.pbSubmit{
+    background-color: #000;
+    color: #fff;
+    width: 6em;
+    height: 1.7em;
+    margin-top: 2em;
+    text-shadow: none;
+    font-family: 'Montserrat', 'Arial', sans-serif;
+    text-decoration: none;
+    font-size: 1.2em;
+}
+
+#fieldlist_1 > div > div.pbSubmit:hover{
+    color: #ef4b3b;
+}
+
+#post-32 > footer{
+    display: none;
+}
+
+#field {
+    width: 55%;
+}
+
+@media all and (max-width: 480px) {
+    /* styles for iPhone/Android landscape (and really narrow browser windows) */
+
+    #field > h1 {
+        font-size: 2em;
+    }
+
+    #message_1 {
+       height: 7em;
+    }
+
+    #fieldlist_1 > div > div.pbSubmit{
+        margin: 1.5em 0;
+        font-size: 2.2em;
+        padding: 9px 37px;
+    }
+}
 
 
 /*--------------------------------------------------------------

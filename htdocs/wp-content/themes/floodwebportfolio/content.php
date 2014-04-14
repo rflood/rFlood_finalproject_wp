@@ -58,6 +58,5 @@
 		<span class="comments-link"><?php comments_popup_link( __( 'Leave a comment', 'floodwebportfolio' ), __( '1 Comment', 'floodwebportfolio' ), __( '% Comments', 'floodwebportfolio' ) ); ?></span>
 		<?php endif; ?>
 
-		<?php edit_post_link( __( 'Edit', 'floodwebportfolio' ), '<span class="edit-link">', '</span>' ); ?>
 	</footer><!-- .entry-footer -->
 </article><!-- #post-## -->

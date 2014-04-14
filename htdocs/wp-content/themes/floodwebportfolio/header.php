@@ -9,7 +9,7 @@
     <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
     <meta name="description" content="Portfolio">
     <meta name="author" content="Rich Flood">
-    <link rel="shortcut icon" href="img/favicon.ico">
+
 
     <!-- Adaptive Images -->
     <script>
@@ -27,6 +27,8 @@
 
     <?php wp_head(); ?>
 </head>
+
+<link rel="shortcut icon" href="<?php echo get_stylesheet_directory_uri(); ?>/img/favicon.ico" />
 
 <body <?php body_class(); ?>>
 <div id="page" class="hfeed site">
