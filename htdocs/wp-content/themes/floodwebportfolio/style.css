@@ -677,7 +677,7 @@ object {
 
 #main > a:nth-child(odd) > img{
     float: left;
-    width: 40%;
+    width: 37.5%;
     margin: 7em 2.5em 0em 2.5em;
     z-index: 4;
 }
@@ -699,6 +699,11 @@ object {
     width: 100%;
     height: 100%;
     z-index: 1;
+    border: 4px solid;
+}
+
+#main > a > img:visited {
+    border: 4px solid #ef4b3b;
 }
 
 #main > a > img:hover,
@@ -709,7 +714,10 @@ object {
     -o-transition: all .4s ease-in-out;
     -ms-transition: all .4s ease-in-out;
     transition: all .4s ease-in-out;
+    border: 4px solid #ef4b3b;
+
 }
+
 
 /*--------------------------------------------------------------
 10.3 Post Content
@@ -717,6 +725,7 @@ object {
 body{
     background: url(img/portfoliopost-background.jpg);
     height: 100%;
+    width: 100%;
     -moz-box-shadow:    inset 0 0 120px #62a3c3;
     -webkit-box-shadow: inset 0 0 120px #62a3c3;
     box-shadow:         inset 0 0 120px #62a3c3;
@@ -1118,13 +1127,11 @@ html[xmlns] .slides {display: block;}
 
     #main > a:nth-child(odd) > img{
     float: left;
-    width: 40%;
     margin-right: 1.5em;
 }
 
     #main > a:nth-child(even) > img{
     float: right;
-    width: 40%;
     margin-left: 1.5em;
 }
 
@@ -1158,13 +1165,16 @@ html[xmlns] .slides {display: block;}
 @media all and (max-width: 768px) {
     /* styles for narrower desktop browsers and iPad portrait */
 
+    #post-masthead{
+        width: 100%;
+    }
+
     .header-background {
-        width: 123%;
-        margin-left: -12%;
+        position: absolute;
     }
 
     .header-image {
-        margin-top: 4.5em;
+        margin-top: 2.75em;
     }
 
     #main > a:nth-child(odd) > img{
@@ -1216,8 +1226,8 @@ html[xmlns] .slides {display: block;}
     }
 
     .header-image {
-        width: 28%;
-        top: -3em;
+        width: 24%;
+        top: -.5em;
     }
 
     #main > a:nth-child(odd) > img{
@@ -1233,6 +1243,7 @@ html[xmlns] .slides {display: block;}
         float: none;
         margin-left: 5%;
         margin-right: auto;
+        margin-bottom: 6em;
     }
 }
 
@@ -1250,8 +1261,9 @@ html[xmlns] .slides {display: block;}
     }
 
     .site-title a {
-        margin-left: -35%;
+        margin-left: -31%;
     }
+
     .mobile-menu {
         top: 0;
         position: absolute;
@@ -1267,7 +1279,7 @@ html[xmlns] .slides {display: block;}
 
     .header-image {
         width: 28%;
-        top: -3em;
+        top: -1em;
     }
 
     .wrapper {
@@ -1442,7 +1454,7 @@ html[xmlns] .slides {display: block;}
     .header-image{
         height: auto;
         width: 83%;
-        margin-top: 11.75em;
+        margin-top: 9.75em;
     }
 
     #post-masthead {
@@ -1450,6 +1462,7 @@ html[xmlns] .slides {display: block;}
         height:35em;
         width:100%;
         margin-top: -5.5em;
+        margin-bottom: -4em;
     }
 
     .header-background {
