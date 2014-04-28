@@ -4,7 +4,7 @@ Template Name: Contact Page
 */
 get_header(); ?>
 
-    <div id="contact">
+    <div id="contact" class="js">
 
             <?php while ( have_posts() ) : the_post(); ?>
 
@@ -14,5 +14,10 @@ get_header(); ?>
 
         </main><!-- #main -->
     </div><!-- #primary -->
+
+    <div id=alt-contact>
+        <h1>Contact Me</h1>
+        <h2>raflood@gmail.com</h2>
+    </div>
 
 <?php get_footer(); ?>

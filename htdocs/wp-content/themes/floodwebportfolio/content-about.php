@@ -17,7 +17,6 @@ get_header(); ?>
 
         $about_image = get_field('about_image');
         $about_content = get_field('about_content');
-        $button = get_field('button');
 
         ?>
         <div class="wrapper">
@@ -27,7 +26,6 @@ get_header(); ?>
             <div class="about-content">
                 <h1 class="content-title"><?php the_title(); ?></h1>
                 <p class="about-content"><?php echo $about_content; ?></p>
-                <button type="button"><?php echo $button; ?></button>
             </div>
 
         </div>

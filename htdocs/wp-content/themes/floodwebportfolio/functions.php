@@ -102,8 +102,6 @@ function floodwebportfolio_scripts() {
 
 	wp_enqueue_script( 'floodwebportfolio-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20130115', true );
 
-    wp_enqueue_script( 'modernizr', get_template_directory_uri() . '/js/modernizr.js', array(), '1.0.0', true );
-
     wp_enqueue_script( 'respond', get_template_directory_uri() . '/js/respond.min.js', array(), '1.0.0', true );
 
     wp_enqueue_script( 'jquery');
@@ -201,4 +199,11 @@ function create_my_post_types() {
         )
     );
 }
+/*  Script for no-js / js class
+/* ------------------------------------ */
+function alx_html_js_class () {
+    echo '<script>document.documentElement.className = document.documentElement.className.replace("no-js","js");</script>'. "\n";
+}
+add_action( 'wp_head', 'alx_html_js_class', 1 );
+
 

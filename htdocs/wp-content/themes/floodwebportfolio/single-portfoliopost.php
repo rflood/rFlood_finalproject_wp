@@ -1,11 +1,10 @@
-
 <?php
 /*
 Template Name Posts: Portfolio Post
 */
 get_header(); ?>
 
-    <div id="content" class="site-content">
+<div id="content" class="site-content">
 
     <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
@@ -22,6 +21,7 @@ get_header(); ?>
             $description = get_field('description');
             $project_gallery = get_field('project_gallery');
             $button = get_field('button');
+            $pdf = get_field('pdf');
 
             ?>
             <div class="wrapper">
@@ -60,7 +60,9 @@ get_header(); ?>
 
                 </div>
 
-
+                <div class="pdf">
+                    <?php echo $pdf; ?>
+                </div>
 
                 <?php
                 wp_link_pages( array(
@@ -72,9 +74,9 @@ get_header(); ?>
         </div><!-- .entry-content -->
 
         <?php get_footer(); ?>
-    </div><!-- #page -->
+</div><!-- #page -->
 
-    <?php wp_footer(); ?>
+<?php wp_footer(); ?>
 
 </body>
 </html>
